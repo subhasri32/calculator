@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang-"en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+	<META NAME="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Document</title>  
+    
+      <style>
+          .calculator{
+  width:180px;
+  height:140px;
+  background:grey;
+  margin-left:250px;
+  margin-top:200px;
+  text-align:center;
+  border:solid black;
+  box-shadow:3px 3px;
+  float:left;
+  color:black;
+}
+input[type="button"]{
+  width:100%;
+  border:solid black;
+}
+input[type="button"]:hover{
+  background-color:white;
+  transform:scale(2);
+}
+input[type="text"]{
+  border:solid black;
+  width:100%
+}
+</style>
+<body>
+<div class="calculator">
+  <table>
+    <tr>
+      <td colspan="3"><input type="text" id="result"/></td>
+      <td><input type="button" value="C" onclick="Clr()"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="1" onclick="dis('1')"/></td>
+      <td><input type="button" value="2" onclick="dis('2')"/></td>
+      <td><input type="button" value="3" onclick="dis('3')"/></td>
+      <td><input type="button" value="/" id="operator" onclick="dis('/')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="dis('4')"/></td>
+      <td><input type="button" value="5" onclick="dis('5')"/></td>
+      <td><input type="button" value="6" onclick="dis('6')"/></td>
+      <td><input type="button" value="-" id="operator" onclick="dis('-')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="7" onclick="dis('7')"/></td>
+      <td><input type="button" value="8" onclick="dis('8')"/></td>
+      <td><input type="button" value="9" onclick="dis('9')"/></td>
+      <td><input type="button" value="+" id="operator" onclick="dis('+')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="." onclick="dis('.')"/></td>
+      <td><input type="button" value="0" onclick="dis('0')"/></td>
+      <td><input type="button" value="=" onclick="solve()"/></td>
+      <td><input type="button" value="*" id="operator" onclick="dis('*')"/></td>
+    </tr>
+  </table>
+    
+<script>
+function dis(val){
+     document.querySelector("#result").value +=val;
+    
+}
+
+function solve(){
+  const x=document.querySelector("#result").value;
+  const y=eval(x);
+  document.querySelector("#result").value=y;
+}
+function Clr(){
+  document.querySelector("#result").value=" ";
+}
+</script>
+</body>
